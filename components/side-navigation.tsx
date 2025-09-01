@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Home, User, Code, Briefcase, Mail, Menu } from "lucide-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const navItems = [
 	{ id: "hero", label: "Home", icon: Home },
@@ -85,6 +86,14 @@ export function SideNavigation() {
 								</motion.button>
 							)
 						})}
+					</div>
+
+					{/* Theme Toggle */}
+					<div className="px-6 py-4">
+						<div className="flex items-center justify-between">
+							<span className="text-sm text-muted-foreground">Theme</span>
+							<ThemeToggle />
+						</div>
 					</div>
 
 					<div className="px-6">

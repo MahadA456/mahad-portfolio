@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ChevronDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { TypingAnimation } from "@/components/typing-animation"
+import { DownloadResume } from "@/components/download-resume"
 
 export function InteractiveHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -130,11 +132,22 @@ export function InteractiveHero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Computer Science Graduate & Full-Stack Developer specializing in{" "}
-            <span className="text-primary font-semibold">React</span>,{" "}
-            <span className="text-secondary font-semibold">Vue.js</span>,{" "}
-            <span className="text-primary font-semibold">Next.js</span>, and{" "}
-            <span className="text-secondary font-semibold">Angular</span>
+            <TypingAnimation 
+              texts={[
+                "Full-Stack Developer",
+                "React Specialist",
+                "Vue.js Expert", 
+                "Next.js Developer",
+                "Angular Developer",
+                "MERN Stack Developer"
+              ]}
+              speed={120}
+              className="text-primary font-semibold"
+            />
+            <br />
+            <span className="text-sm sm:text-base md:text-lg">
+              Computer Science Graduate specializing in modern web technologies
+            </span>
           </motion.p>
 
           <motion.div
@@ -145,13 +158,35 @@ export function InteractiveHero() {
           >
             <Button
               size="lg"
+              onClick={() => {
+                const projectsSection = document.getElementById('projects')
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg animate-glow w-full sm:w-auto"
             >
               View My Work
             </Button>
             <Button
+              size="lg"
+              onClick={() => window.open('https://github.com/MahadA456', '_blank')}
+              variant="outline"
+              className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg bg-transparent w-full sm:w-auto group"
+            >
+              <Github className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:animate-pulse" />
+              GitHub Profile
+            </Button>
+            <DownloadResume />
+            <Button
               variant="outline"
               size="lg"
+              onClick={() => {
+                const contactSection = document.getElementById('contact')
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg bg-transparent w-full sm:w-auto"
             >
               Get In Touch

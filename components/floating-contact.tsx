@@ -278,7 +278,7 @@ export function FloatingContact() {
       </AnimatePresence>
 
       {/* Contact Section for scrolling */}
-      <section id="contact" className="py-12 md:py-20 md:ml-64 px-4 md:px-8">
+      <section id="contact" className="py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

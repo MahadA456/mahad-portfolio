@@ -95,6 +95,19 @@ export function ProjectCarousel() {
             Explore my latest work showcasing innovative solutions and cutting-edge technologies
           </p>
 
+          {/* GitHub Profile Button */}
+          <div className="mb-6 md:mb-8">
+            <Button
+              onClick={() => window.open('https://github.com/MahadA456', '_blank')}
+              variant="outline"
+              size="lg"
+              className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground group"
+            >
+              <Github className="w-5 h-5 mr-2 group-hover:animate-pulse" />
+              View All Projects on GitHub
+            </Button>
+          </div>
+
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-2 mb-6 md:mb-8 px-4">
             {categories.map((category) => (
