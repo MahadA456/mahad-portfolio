@@ -76,7 +76,7 @@ export function FloatingContact() {
     <>
       {/* Floating Contact Button */}
       <motion.div
-        className="fixed bottom-8 right-8 z-50"
+        className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 260, damping: 20 }}
@@ -84,9 +84,9 @@ export function FloatingContact() {
         <Button
           onClick={() => setIsOpen(true)}
           size="lg"
-          className="rounded-full w-16 h-16 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 animate-glow"
+          className="rounded-full w-12 h-12 sm:w-16 sm:h-16 bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 animate-glow"
         >
-          <MessageCircle className="w-6 h-6" />
+          <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
         </Button>
       </motion.div>
 
@@ -109,15 +109,15 @@ export function FloatingContact() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl z-50"
+              className="fixed inset-2 sm:inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl z-50"
             >
               <Card className="h-full md:h-auto bg-card/95 backdrop-blur-lg border-border shadow-2xl">
                 <div className="flex flex-col h-full">
                   {/* Header */}
-                  <div className="flex items-center justify-between p-6 border-b border-border">
+                  <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border">
                     <div>
-                      <h2 className="text-2xl font-bold text-foreground">Get In Touch</h2>
-                      <p className="text-muted-foreground">Let's discuss your next project</p>
+                      <h2 className="text-xl sm:text-2xl font-bold text-foreground">Get In Touch</h2>
+                      <p className="text-sm sm:text-base text-muted-foreground">Let's discuss your next project</p>
                     </div>
                     <Button
                       variant="ghost"
@@ -125,18 +125,18 @@ export function FloatingContact() {
                       onClick={() => setIsOpen(false)}
                       className="rounded-full hover:bg-accent"
                     >
-                      <X className="w-5 h-5" />
+                      <X className="w-4 h-4 sm:w-5 sm:h-5" />
                     </Button>
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 p-6 overflow-y-auto">
-                    <div className="grid md:grid-cols-2 gap-8">
+                  <div className="flex-1 p-4 sm:p-6 overflow-y-auto">
+                    <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                       {/* Contact Info */}
-                      <div className="space-y-6">
+                      <div className="space-y-4 sm:space-y-6 order-2 md:order-1">
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground mb-4">Contact Information</h3>
-                          <div className="space-y-4">
+                          <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">Contact Information</h3>
+                          <div className="space-y-3 sm:space-y-4">
                             <div className="flex items-center gap-3">
                               <div className="p-2 rounded-lg bg-primary/20">
                                 <Mail className="w-4 h-4 text-primary" />
@@ -178,94 +178,96 @@ export function FloatingContact() {
                       </div>
 
                       {/* Contact Form */}
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="grid grid-cols-2 gap-4">
+                      <div className="order-1 md:order-2">
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <Label htmlFor="name" className="text-sm sm:text-base">Name</Label>
+                              <Input
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                placeholder="Your name"
+                                required
+                                className="bg-input border-border focus:border-primary text-sm sm:text-base"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="email" className="text-sm sm:text-base">Email</Label>
+                              <Input
+                                id="email"
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                placeholder="your@email.com"
+                                required
+                                className="bg-input border-border focus:border-primary text-sm sm:text-base"
+                              />
+                            </div>
+                          </div>
+
                           <div className="space-y-2">
-                            <Label htmlFor="name">Name</Label>
+                            <Label htmlFor="subject" className="text-sm sm:text-base">Subject</Label>
                             <Input
-                              id="name"
-                              name="name"
-                              value={formData.name}
+                              id="subject"
+                              name="subject"
+                              value={formData.subject}
                               onChange={handleInputChange}
-                              placeholder="Your name"
+                              placeholder="Project inquiry, collaboration, etc."
                               required
-                              className="bg-input border-border focus:border-primary"
+                              className="bg-input border-border focus:border-primary text-sm sm:text-base"
                             />
                           </div>
+
                           <div className="space-y-2">
-                            <Label htmlFor="email">Email</Label>
-                            <Input
-                              id="email"
-                              name="email"
-                              type="email"
-                              value={formData.email}
+                            <Label htmlFor="message" className="text-sm sm:text-base">Message</Label>
+                            <Textarea
+                              id="message"
+                              name="message"
+                              value={formData.message}
                               onChange={handleInputChange}
-                              placeholder="your@email.com"
+                              placeholder="Tell me about your project or how I can help..."
+                              rows={4}
                               required
-                              className="bg-input border-border focus:border-primary"
+                              className="bg-input border-border focus:border-primary resize-none text-sm sm:text-base"
                             />
                           </div>
-                        </div>
 
-                        <div className="space-y-2">
-                          <Label htmlFor="subject">Subject</Label>
-                          <Input
-                            id="subject"
-                            name="subject"
-                            value={formData.subject}
-                            onChange={handleInputChange}
-                            placeholder="Project inquiry, collaboration, etc."
-                            required
-                            className="bg-input border-border focus:border-primary"
-                          />
-                        </div>
-
-                        <div className="space-y-2">
-                          <Label htmlFor="message">Message</Label>
-                          <Textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleInputChange}
-                            placeholder="Tell me about your project or how I can help..."
-                            rows={4}
-                            required
-                            className="bg-input border-border focus:border-primary resize-none"
-                          />
-                        </div>
-
-                        {/* Status Messages */}
-                        {submitStatus === 'success' && (
-                          <div className="p-3 rounded-lg bg-green-500/20 border border-green-500/30">
-                            <p className="text-green-400 text-sm">Message sent successfully! I'll get back to you soon.</p>
-                          </div>
-                        )}
-                        
-                        {submitStatus === 'error' && (
-                          <div className="p-3 rounded-lg bg-red-500/20 border border-red-500/30">
-                            <p className="text-red-400 text-sm">Failed to send message. Please try again or email me directly.</p>
-                          </div>
-                        )}
-
-                        <Button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50"
-                          size="lg"
-                        >
-                          {isSubmitting ? (
-                            <>
-                              <div className="w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                              Sending...
-                            </>
-                          ) : (
-                            <>
-                              <Send className="w-4 h-4 mr-2" />
-                              Send Message
-                            </>
+                          {/* Status Messages */}
+                          {submitStatus === 'success' && (
+                            <div className="p-3 rounded-lg bg-green-500/20 border border-green-500/30">
+                              <p className="text-green-400 text-xs sm:text-sm">Message sent successfully! I'll get back to you soon.</p>
+                            </div>
                           )}
-                        </Button>
-                      </form>
+                          
+                          {submitStatus === 'error' && (
+                            <div className="p-3 rounded-lg bg-red-500/20 border border-red-500/30">
+                              <p className="text-red-400 text-xs sm:text-sm">Failed to send message. Please try again or email me directly.</p>
+                            </div>
+                          )}
+
+                          <Button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50"
+                            size="lg"
+                          >
+                            {isSubmitting ? (
+                              <>
+                                <div className="w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                                Sending...
+                              </>
+                            ) : (
+                              <>
+                                <Send className="w-4 h-4 mr-2" />
+                                Send Message
+                              </>
+                            )}
+                          </Button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>

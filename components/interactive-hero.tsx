@@ -97,18 +97,18 @@ export function InteractiveHero() {
   }, [])
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center ml-64">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 md:px-8">
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" style={{ background: "transparent" }} />
 
-      <div className="relative z-10 text-center max-w-4xl mx-auto px-8">
+      <div className="relative z-10 text-center max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-6 md:space-y-8"
         >
           <motion.h1
-            className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent"
+            className="text-4xl sm:text-6xl md:text-8xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -125,7 +125,7 @@ export function InteractiveHero() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -138,28 +138,28 @@ export function InteractiveHero() {
           </motion.p>
 
           <motion.div
-            className="flex items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg animate-glow"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg animate-glow w-full sm:w-auto"
             >
               View My Work
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-3 text-lg bg-transparent"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 sm:px-8 py-3 text-base sm:text-lg bg-transparent w-full sm:w-auto"
             >
               Get In Touch
             </Button>
           </motion.div>
 
           <motion.div
-            className="flex items-center justify-center gap-6 pt-8"
+            className="flex items-center justify-center gap-4 sm:gap-6 pt-6 sm:pt-8 px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8 }}
@@ -174,11 +174,11 @@ export function InteractiveHero() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full border border-border hover:border-primary transition-colors group"
+                className="p-2 sm:p-3 rounded-full border border-border hover:border-primary transition-colors group"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-muted-foreground group-hover:text-primary transition-colors" />
               </motion.a>
             ))}
           </motion.div>

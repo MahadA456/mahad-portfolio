@@ -33,18 +33,18 @@ export function Navigation() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl text-primary hover:text-primary/80 transition-colors duration-300 cursor-pointer">
+        <div className="flex justify-between items-center h-14 md:h-16">
+          <div className="font-bold text-lg md:text-xl text-primary hover:text-primary/80 transition-colors duration-300 cursor-pointer">
             Mahad Alam Shah
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-6 lg:space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium relative group"
+                className="text-foreground/80 hover:text-primary transition-all duration-300 font-medium relative group text-sm lg:text-base"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -56,10 +56,10 @@ export function Navigation() {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden hover:bg-accent/50 transition-colors duration-300"
+            className="md:hidden hover:bg-accent/50 transition-colors duration-300 h-10 w-10"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
 
@@ -71,7 +71,7 @@ export function Navigation() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="block px-3 py-2 text-foreground/80 hover:text-primary hover:bg-accent/30 rounded-md transition-all duration-300 font-medium"
+                  className="block px-3 py-3 text-foreground/80 hover:text-primary hover:bg-accent/30 rounded-md transition-all duration-300 font-medium text-base"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

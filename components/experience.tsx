@@ -37,47 +37,47 @@ export function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20 bg-muted/30">
+    <section id="experience" className="py-12 md:py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
             Professional Experience
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             Building expertise through hands-on experience at innovative tech companies.
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6 md:space-y-8">
           {experiences.map((exp, index) => (
             <Card key={index} className="group hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-8">
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+              <CardContent className="p-6 md:p-8">
+                <div className="flex flex-col gap-4 md:gap-6">
                   {/* Main Content */}
-                  <div className="flex-1 space-y-4">
+                  <div className="space-y-3 md:space-y-4">
                     <div className="space-y-2">
                       <div className="flex items-center gap-3 flex-wrap">
-                        <h3 className="font-heading font-bold text-xl text-foreground">{exp.title}</h3>
-                        {exp.current && <Badge className="bg-primary text-primary-foreground">Current</Badge>}
+                        <h3 className="font-heading font-bold text-lg md:text-xl text-foreground">{exp.title}</h3>
+                        {exp.current && <Badge className="bg-primary text-primary-foreground text-xs">Current</Badge>}
                       </div>
 
-                      <div className="flex items-center gap-4 text-muted-foreground flex-wrap">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-muted-foreground">
                         <div className="flex items-center gap-2">
-                          <Building className="h-4 w-4" />
-                          <span className="font-semibold text-foreground">{exp.company}</span>
+                          <Building className="h-4 w-4 flex-shrink-0" />
+                          <span className="font-semibold text-foreground text-sm md:text-base">{exp.company}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4" />
-                          <span>{exp.location}</span>
+                          <MapPin className="h-4 w-4 flex-shrink-0" />
+                          <span className="text-sm md:text-base">{exp.location}</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Calendar className="h-4 w-4" />
-                          <span>{exp.period}</span>
+                          <Calendar className="h-4 w-4 flex-shrink-0" />
+                          <span className="text-sm md:text-base">{exp.period}</span>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{exp.description}</p>
 
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
@@ -90,18 +90,6 @@ export function Experience() {
                         </Badge>
                       ))}
                     </div>
-                  </div>
-
-                  {/* Timeline Indicator */}
-                  <div className="hidden lg:flex flex-col items-center">
-                    <div
-                      className={`w-4 h-4 rounded-full border-2 ${
-                        exp.current
-                          ? "bg-primary border-primary animate-pulse"
-                          : "bg-background border-muted-foreground"
-                      }`}
-                    ></div>
-                    {index < experiences.length - 1 && <div className="w-0.5 h-16 bg-border mt-2"></div>}
                   </div>
                 </div>
               </CardContent>

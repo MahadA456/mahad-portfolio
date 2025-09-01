@@ -17,13 +17,13 @@ export function About() {
           {/* Personal Info */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h3 className="font-heading font-semibold text-2xl text-foreground">Hello! I'm Mahad Alam Shah</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="font-heading font-semibold text-xl md:text-2xl text-foreground">Hello! I'm Mahad Alam Shah</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                 I'm a passionate full-stack developer based in Islamabad, Pakistan, with a strong foundation in modern
                 web technologies. Currently pursuing my BS in Computer Science at Air University, I've gained valuable
                 experience through internships at leading tech companies.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                 My journey in tech has been driven by curiosity and a desire to create meaningful digital experiences.
                 From building responsive web applications to exploring blockchain technology, I'm always eager to learn
                 and implement cutting-edge solutions.
@@ -31,33 +31,33 @@ export function About() {
             </div>
 
             <div className="flex items-center gap-2 text-muted-foreground">
-              <MapPin className="h-5 w-5 text-primary" />
-              <span>Islamabad, Pakistan</span>
+              <MapPin className="h-4 w-4 md:h-5 md:w-5 text-primary" />
+              <span className="text-sm md:text-base">Islamabad, Pakistan</span>
             </div>
           </div>
 
           {/* Education & Quick Facts */}
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-4 md:p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <GraduationCap className="h-6 w-6 text-primary" />
-                  <h4 className="font-heading font-semibold text-xl">Education</h4>
+                  <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                  <h4 className="font-heading font-semibold text-lg md:text-xl">Education</h4>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   <div>
-                    <h5 className="font-semibold text-foreground">BS Computer Science</h5>
-                    <p className="text-muted-foreground">Air University</p>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                      <Calendar className="h-4 w-4" />
+                    <h5 className="font-semibold text-foreground text-sm md:text-base">BS Computer Science</h5>
+                    <p className="text-muted-foreground text-sm md:text-base">Air University</p>
+                    <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mt-1">
+                      <Calendar className="h-3 w-3 md:h-4 md:w-4" />
                       <span>2021 - 2025</span>
                     </div>
                   </div>
                   <div>
-                    <h5 className="font-semibold text-foreground">F.Sc</h5>
-                    <p className="text-muted-foreground">APS Ordinance</p>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                      <Calendar className="h-4 w-4" />
+                    <h5 className="font-semibold text-foreground text-sm md:text-base">F.Sc</h5>
+                    <p className="text-muted-foreground text-sm md:text-base">APS Ordinance</p>
+                    <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground mt-1">
+                      <Calendar className="h-3 w-3 md:h-4 md:w-4" />
                       <span>2019 - 2021</span>
                     </div>
                   </div>

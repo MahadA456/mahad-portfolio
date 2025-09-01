@@ -49,28 +49,28 @@ const timelineData = [
 
 export function VisualTimeline() {
   return (
-    <section id="timeline" className="py-20 ml-64 px-8">
+    <section id="timeline" className="py-12 md:py-20 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Experience
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             From Graduate to developer, here's my professional journey in technology
           </p>
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-secondary to-primary opacity-30" />
+          {/* Timeline line - hidden on mobile, centered line on desktop */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-secondary to-primary opacity-30" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {timelineData.map((item, index) => {
               const Icon = item.icon
               const isEven = index % 2 === 0
@@ -78,21 +78,22 @@ export function VisualTimeline() {
               return (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className={`flex items-center ${isEven ? "flex-row" : "flex-row-reverse"}`}
+                  className="flex flex-col md:flex-row md:items-center"
                 >
-                  <div className={`w-1/2 ${isEven ? "pr-8 text-right" : "pl-8 text-left"}`}>
-                    <Card className="p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 group">
-                      <div className="space-y-4">
-                        <div className={`flex items-center gap-3 ${isEven ? "justify-end" : "justify-start"}`}>
+                  {/* Mobile: Stack vertically, Desktop: Alternate sides */}
+                  <div className={`w-full md:w-1/2 ${isEven ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"} ${!isEven ? "md:order-2" : ""}`}>
+                    <Card className="p-4 sm:p-6 bg-card/50 backdrop-blur-sm border-border hover:border-primary/50 transition-all duration-300 group">
+                      <div className="space-y-3 sm:space-y-4">
+                        <div className={`flex items-center gap-3 ${isEven ? "md:justify-end" : "md:justify-start"}`}>
                           <div
                             className={`p-2 rounded-lg ${item.color === "primary" ? "bg-primary/20" : "bg-secondary/20"}`}
                           >
                             <Icon
-                              className={`w-5 h-5 ${item.color === "primary" ? "text-primary" : "text-secondary"}`}
+                              className={`w-4 h-4 sm:w-5 sm:h-5 ${item.color === "primary" ? "text-primary" : "text-secondary"}`}
                             />
                           </div>
                           <span
@@ -105,23 +106,23 @@ export function VisualTimeline() {
                         </div>
 
                         <div>
-                          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                          <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                             {item.title}
                           </h3>
-                          <p className="text-lg font-semibold text-primary mt-1">{item.company}</p>
+                          <p className="text-base sm:text-lg font-semibold text-primary mt-1">{item.company}</p>
                           <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
-                            <MapPin className="w-4 h-4" />
+                            <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                             {item.location}
                           </p>
                         </div>
 
-                        <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                        <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{item.description}</p>
                       </div>
                     </Card>
                   </div>
 
-                  {/* Center dot */}
-                  <div className="relative z-10">
+                  {/* Center dot - only visible on desktop */}
+                  <div className="hidden md:block relative z-10 mx-8">
                     <motion.div
                       className={`w-4 h-4 rounded-full border-4 border-background ${
                         item.color === "primary" ? "bg-primary" : "bg-secondary"
@@ -132,7 +133,8 @@ export function VisualTimeline() {
                     />
                   </div>
 
-                  <div className="w-1/2" />
+                  {/* Spacer for desktop layout */}
+                  <div className="hidden md:block md:w-1/2" />
                 </motion.div>
               )
             })}

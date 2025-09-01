@@ -53,27 +53,27 @@ export function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-12 md:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-4">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
             Skills & Expertise
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             A comprehensive toolkit for building modern, scalable, and user-friendly applications.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {skillCategories.map((category, index) => (
             <Card
               key={category.title}
               className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
             >
-              <CardContent className="p-6">
+              <CardContent className="p-4 md:p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">{category.icon}</span>
-                  <h3 className="font-heading font-semibold text-xl text-foreground">{category.title}</h3>
+                  <span className="text-xl md:text-2xl">{category.icon}</span>
+                  <h3 className="font-heading font-semibold text-lg md:text-xl text-foreground">{category.title}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (

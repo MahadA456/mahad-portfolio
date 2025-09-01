@@ -99,23 +99,23 @@ export function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-12 md:py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-4">Get In Touch</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">Get In Touch</h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Form */}
           <Card>
             <CardHeader>
-              <CardTitle className="font-heading text-2xl">Send a Message</CardTitle>
+              <CardTitle className="font-heading text-xl md:text-2xl">Send a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -170,7 +170,8 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={6}
+                    rows={5}
+                    className="md:min-h-[120px]"
                     placeholder="Tell me about your project or idea..."
                   />
                 </div>
@@ -192,7 +193,7 @@ export function Contact() {
                   type="submit" 
                   size="lg" 
                   disabled={isSubmitting}
-                  className="w-full font-medium disabled:opacity-50"
+                  className="w-full font-medium disabled:opacity-50 h-12 md:h-auto"
                 >
                   {isSubmitting ? (
                     <>
@@ -201,7 +202,7 @@ export function Contact() {
                     </>
                   ) : (
                     <>
-                      <Send className="h-5 w-5 mr-2" />
+                      <Send className="h-4 w-4 md:h-5 md:w-5 mr-2" />
                       Send Message
                     </>
                   )}
@@ -211,26 +212,26 @@ export function Contact() {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <Card>
               <CardHeader>
-                <CardTitle className="font-heading text-2xl">Contact Information</CardTitle>
+                <CardTitle className="font-heading text-xl md:text-2xl">Contact Information</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 md:space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg text-primary">{info.icon}</div>
-                    <div>
+                  <div key={index} className="flex items-center gap-3 md:gap-4">
+                    <div className="p-2 md:p-3 bg-primary/10 rounded-lg text-primary flex-shrink-0">{info.icon}</div>
+                    <div className="min-w-0 flex-1">
                       <p className="text-sm text-muted-foreground">{info.label}</p>
                       {info.href !== "#" ? (
                         <a
                           href={info.href}
-                          className="font-medium text-foreground hover:text-primary transition-colors duration-200"
+                          className="font-medium text-foreground hover:text-primary transition-colors duration-200 break-words"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="font-medium text-foreground">{info.value}</p>
+                        <p className="font-medium text-foreground break-words">{info.value}</p>
                       )}
                     </div>
                   </div>
@@ -240,20 +241,20 @@ export function Contact() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="font-heading text-2xl">Follow Me</CardTitle>
+                <CardTitle className="font-heading text-xl md:text-2xl">Follow Me</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 p-4 bg-card border border-border rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                      className="flex items-center gap-3 p-3 md:p-4 bg-card border border-border rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:-translate-y-1 hover:shadow-md flex-1 justify-center sm:justify-start"
                     >
                       {social.icon}
-                      <span className="font-medium">{social.label}</span>
+                      <span className="font-medium text-sm md:text-base">{social.label}</span>
                     </a>
                   ))}
                 </div>

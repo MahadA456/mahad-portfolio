@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <SideNavigation />
-      <main className="relative">
+      <main className="relative md:ml-64">
         <InteractiveHero />
         <VisualTimeline />
         <ProjectCarousel />
