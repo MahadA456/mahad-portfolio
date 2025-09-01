@@ -278,7 +278,7 @@ export function FloatingContact() {
       </AnimatePresence>
 
       {/* Contact Section for scrolling */}
-      <section id="contact" className="py-20 ml-64 px-8">
+      <section id="contact" className="py-12 md:py-20 md:ml-64 px-4 md:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -286,19 +286,19 @@ export function FloatingContact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent px-4">
               Let's Work Together
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               Ready to bring your ideas to life? I'm always excited to work on new projects and collaborate with amazing
               people.
             </p>
             <Button
               onClick={() => setIsOpen(true)}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg animate-glow"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 md:px-8 py-3 text-base md:text-lg animate-glow w-auto"
             >
-              <Mail className="w-5 h-5 mr-2" />
+              <Mail className="w-4 h-4 md:w-5 md:h-5 mr-2" />
               Start a Conversation
             </Button>
           </motion.div>

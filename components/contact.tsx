@@ -108,15 +108,15 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
           {/* Contact Form */}
-          <Card>
-            <CardHeader>
+          <Card className="order-2 lg:order-1">
+            <CardHeader className="p-4 md:p-6">
               <CardTitle className="font-heading text-xl md:text-2xl">Send a Message</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-4 md:p-6">
               <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-foreground">
                       Name *
@@ -128,6 +128,7 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Your full name"
+                      className="h-10 md:h-11"
                     />
                   </div>
                   <div className="space-y-2">
@@ -142,6 +143,7 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="your.email@example.com"
+                      className="h-10 md:h-11"
                     />
                   </div>
                 </div>
@@ -157,6 +159,7 @@ export function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="What's this about?"
+                    className="h-10 md:h-11"
                   />
                 </div>
 
@@ -212,12 +215,12 @@ export function Contact() {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-4 md:space-y-6 lg:space-y-8 order-1 lg:order-2">
             <Card>
-              <CardHeader>
+              <CardHeader className="p-4 md:p-6">
                 <CardTitle className="font-heading text-xl md:text-2xl">Contact Information</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4 md:space-y-6">
+              <CardContent className="p-4 md:p-6 pt-0 space-y-4 md:space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-center gap-3 md:gap-4">
                     <div className="p-2 md:p-3 bg-primary/10 rounded-lg text-primary flex-shrink-0">{info.icon}</div>
@@ -240,10 +243,10 @@ export function Contact() {
             </Card>
 
             <Card>
-              <CardHeader>
+              <CardHeader className="p-4 md:p-6">
                 <CardTitle className="font-heading text-xl md:text-2xl">Follow Me</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 md:p-6 pt-0">
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                   {socialLinks.map((social, index) => (
                     <a
@@ -262,9 +265,9 @@ export function Contact() {
             </Card>
 
             <Card>
-              <CardContent className="p-6">
-                <h3 className="font-heading font-semibold text-xl mb-4">Let's Build Something Great</h3>
-                <p className="text-muted-foreground leading-relaxed">
+              <CardContent className="p-4 md:p-6 text-center">
+                <h3 className="font-heading font-semibold text-lg md:text-xl mb-3 md:mb-4">Let's Build Something Great</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   I'm always excited to work on new projects and collaborate with talented individuals. Whether you need
                   a full-stack web application, a modern frontend, or technical consultation, I'm here to help bring
                   your vision to life.
